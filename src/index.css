@@ -146,4 +146,8 @@ All colors MUST be HSL for consistency.
   .transition-fast {
     transition: var(--transition-fast);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }

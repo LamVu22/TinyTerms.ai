@@ -30,8 +30,17 @@ const Home = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="#topics">Browse Topics</Link>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => {
+                const topicsSection = document.getElementById('topics');
+                if (topicsSection) {
+                  topicsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Browse Topics
             </Button>
           </div>
         </div>
@@ -93,17 +102,17 @@ const Home = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {topics.map((topic) => (
-              <Card key={topic.id} className="card-hover group">
-                <CardHeader>
+              <Card key={topic.id} className="card-hover group flex flex-col">
+                <CardHeader className="flex-grow">
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
                     {topic.emoji}
                   </div>
                   <CardTitle>{topic.name}</CardTitle>
-                  <CardDescription className="text-base">
+                  <CardDescription className="text-base h-16 overflow-hidden">
                     {topic.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <Button asChild className="w-full">
                     <Link to={`/topic/${topic.id}`}>
                       Explore {topic.terms.length} Terms
