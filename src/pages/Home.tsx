@@ -113,7 +113,7 @@ const Home = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button asChild className="w-full">
+                  <Button asChild className="w-full" onClick={() => {window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
                     <Link to={`/topic/${topic.id}`}>
                       Explore {topic.terms.length} Terms
                       <ArrowRight className="ml-2 h-4 w-4" />
